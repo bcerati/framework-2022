@@ -4,6 +4,7 @@ namespace Framework\Routing;
 
 use FastRoute\Dispatcher;
 use FastRoute\RouteCollector;
+use Framework\Config\Config;
 use Framework\Exception\RouteNotFoundException;
 use Framework\Exception\RoutingMethodNotAllowed;
 use Framework\Response\Response;
@@ -72,7 +73,7 @@ class Routing
   protected function initDispatcher()
   {
     $dispatcher = simpleDispatcher(function(RouteCollector $r) {
-        $routes = include dirname(__DIR__) . '/../../config/routes.php';
+        $routes = Config::get('routing');
 
         foreach ($routes as $route) {
           $r->addRoute($route->getMethod(), $route->getUrl(), $route->getController());

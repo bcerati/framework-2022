@@ -2,6 +2,7 @@
 
 namespace Framework\Templating;
 
+use Framework\Config\Config;
 use Framework\Response\Response;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
