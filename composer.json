@@ -3,7 +3,9 @@
         "nikic/fast-route": "^1.3",
         "nyholm/psr7": "^1.5",
         "nyholm/psr7-server": "^1.0",
-        "twig/twig": "^3.0"
+        "twig/twig": "^3.0",
+        "doctrine/orm": "^2.13",
+        "symfony/cache": "^6.1"
     },
     "autoload": {
       "psr-4": {
