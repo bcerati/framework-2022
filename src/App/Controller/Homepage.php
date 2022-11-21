@@ -27,8 +27,7 @@ class Homepage
       $userRepository = $em->getRepository(User::class);
       // $users = $userRepository->findAll();
       $user = $userRepository->findOneByEmail('cerati.boris@gmail.com');
-      echo '<pre>';
-      print_r($user);die;
+
       return new Response('home.html.twig');
   }
 }
