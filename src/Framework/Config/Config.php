@@ -7,14 +7,19 @@ class Config
     public static function get(string $configName = null): mixed
     {
         $configPath = dirname(__DIR__) . '/../../config';
-        $files = self::glob($configPath . '/*.php');
+        $allFiles = [
+            self::glob($configPath . '/*.php'),
+            self::glob($configPath . '/*.local.php')
+        ];
 
         $config = [];
-        foreach ($files as $file) {
-            $data = include $file;
+        foreach ($allFiles as $files) {
+            foreach ($files as $file) {
+                $data = include $file;
 
-            if (is_array($data)) {
-                $config = array_merge($config, $data);
+                if (is_array($data)) {
+                    $config = array_merge($config, $data);
+                }
             }
         }
     
